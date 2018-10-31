@@ -38,9 +38,9 @@
             android:layout_alignEnd="@+id/textView16"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20sp"
-            android:text="Description"
+            android:text="₹299"
             android:textColor="@android:color/background_dark"
-            android:textSize="14sp"
+            android:textSize="24sp"
             android:typeface="sans" />
 
         <Button
@@ -79,13 +79,23 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textView16"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20sp"
+            android:layout_marginBottom="10sp"
             android:text="2. Premium Plan"
             android:textColor="@android:color/background_dark"
             android:textSize="24sp"
             android:textStyle="bold"
             android:typeface="sans" />
-
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView16"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20sp"
+            android:text="(Stand Alone Plan)"
+            android:textColor="@android:color/background_dark"
+            android:textSize="10sp"
+            android:typeface="sans" />
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
@@ -93,9 +103,9 @@
             android:layout_alignEnd="@+id/textView16"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20sp"
-            android:text="Description"
+            android:text="₹399"
             android:textColor="@android:color/background_dark"
-            android:textSize="14sp"
+            android:textSize="24sp"
             android:typeface="sans" />
 
         <Button
