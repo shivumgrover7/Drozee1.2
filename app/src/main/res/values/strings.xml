@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Drozee</string>
+    <string name="title_activity_main_activit_n">MainActivitN</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Logout</string>
+    <string name="termsAndCondition">Terms and Conditions: \n
+1.	Drozee surfaces is a part of Stanzaa Enterprise. \n
+2.	Originally the membership is of Rs 699 which is reduced to Rs 299 for the members registering till 31st of December. \n
+3.	Any gift vouchers which is in its validation period is applicable as the above-mentioned reduced price. \n
+4.	Students of the age group of 18+ should avail red carpet credit card at free of cost with just a minor KYC. \n
+5.	Those who fail to do so or don’t want to avail this advantage will be charged Rs 399 per year. \n
+6.	At max 12 books will be issued on one membership per year. \n
+7.	No vouchers will be applicable on the cost paid for extending limit of number of books per year. \n
+8.	Novel’s pick up and delivery will be done in colleges on weekdays on a specified day of the month. \n
+9.	For home delivery and pickup each round will cost an extra amount of Rs 50. \n
+10.	Home delivery and pick up will be done on any day as per your preference. \n
+11.	You can return the book within two days of purchase (for purchased books only). \n
+Terms of Use: \n
+1.	Use of ink on books is prohibited, if done fine will be charged. \n
+2.	In case of any wear book will not be accepted and further deliveries will be cancelled if no payment for the wear and tear is received. \n
+3.	Return policy is not applicable on books with torn pages or any other kind of wear and tear. \n
+
+</string>
+</resources>

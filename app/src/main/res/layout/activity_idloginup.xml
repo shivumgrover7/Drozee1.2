@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IDLoginup">
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="299sp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80sp"
+            android:text="Please Upload your ID Card"
+            android:textColor="@android:color/background_dark"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="120sp"
+            android:layout_height="124sp"
+            android:layout_centerHorizontal="true"
+            android:alpha="0.45"
+            android:cropToPadding="false"
+            app:srcCompat="@drawable/idimage" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:text="Upload image of ID Card Front Side" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="120sp"
+            android:layout_height="124sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10sp"
+            android:alpha="0.45"
+            app:srcCompat="@drawable/idimage" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:text="Upload image of ID Card Back Side" />
+
+
+        <Button
+            android:id="@+id/imageButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10sp"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/button"
+            android:drawableRight="@drawable/arrow"
+            android:padding="15sp"
+            android:text="Continue"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:srcCompat="@drawable/button" />
+    </LinearLayout>
+
+</RelativeLayout>

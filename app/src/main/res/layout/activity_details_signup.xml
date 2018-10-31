@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsSignup">
+
+
+    <LinearLayout
+        android:id="@+id/linearL"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40sp"
+            android:text="Please tell us more about yourself!"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="103dp"
+            android:layout_height="101dp"
+            android:layout_marginBottom="20sp"
+            app:srcCompat="@drawable/user" />
+        <!--<com.drozee.drozeebvest.CircularImageView-->
+            <!--android:id="@+id/imageView3"-->
+            <!--android:layout_width="100sp"-->
+            <!--android:layout_height="100sp"-->
+            <!--android:src="@drawable/user"-->
+            <!--android:adjustViewBounds="true"/>-->
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10sp"
+            android:text="Profile Picture(optional)" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="#909090"
+            android:drawableLeft="@drawable/ic_name"
+            android:ems="10"
+
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="#909090"
+            android:drawableLeft="@drawable/ic_college"
+            android:ems="10"
+
+            android:hint="College Name"
+            android:inputType="textPersonName"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#909090"
+            android:drawableLeft="@drawable/year"
+            android:ems="10"
+
+            android:hint="College Year"
+            android:inputType="number"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <Button
+            android:id="@+id/imageButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20sp"
+            android:layout_marginTop="40sp"
+            android:background="@drawable/button"
+            android:drawableRight="@drawable/arrow"
+            android:padding="15sp"
+            android:text="Continue"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:srcCompat="@drawable/button" />
+    </LinearLayout>
+
+</RelativeLayout>

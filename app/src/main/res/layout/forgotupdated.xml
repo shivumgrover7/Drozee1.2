@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Forgot">
+
+    <LinearLayout
+        android:id="@+id/linearL"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="90sp"
+            android:text="Please enter your email for a new password"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="#909090"
+            android:drawableLeft="@drawable/emai"
+            android:ems="10"
+
+            android:hint="Email"
+            android:inputType="textPersonName"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <Button
+            android:id="@+id/imageButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20sp"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/button"
+            android:drawableRight="@drawable/arrow"
+            android:padding="15sp"
+            android:text="Continue"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:srcCompat="@drawable/button" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30sp" />
+
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20sp"
+            android:text="Not registered?"
+            android:textColor="@android:color/background_dark"
+            android:textSize="14sp"
+            android:typeface="sans" />
+    </LinearLayout>
+
+
+</RelativeLayout>

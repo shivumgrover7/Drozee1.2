@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="330sp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You have not paid yet"
+            android:layout_marginBottom="20sp"
+            android:textSize="22sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please complete your payment to enjoy our full benefits"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/imageButton"
+        android:layout_width="288dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="95dp"
+        android:background="@drawable/button"
+        android:drawableRight="@drawable/arrow"
+        android:padding="15sp"
+        android:text="See our Plans"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:srcCompat="@drawable/button" />
+</RelativeLayout>

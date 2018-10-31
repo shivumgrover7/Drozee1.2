@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40sp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearL"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="63sp"
+            android:layout_marginBottom="40sp"
+            android:layout_marginTop="20sp"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/drozee" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20sp"
+            android:text="Let's get you started"
+            android:textColor="@android:color/background_dark"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="#909090"
+            android:drawableLeft="@drawable/emai"
+            android:ems="10"
+
+            android:hint="Email"
+            android:inputType="textPersonName"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10sp"
+            android:backgroundTint="#909090"
+            android:drawableLeft="@drawable/lock"
+            android:ems="10"
+
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#909090"
+            android:drawableLeft="@drawable/lock"
+            android:ems="10"
+
+            android:hint="Confirm password"
+            android:inputType="textPassword"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
+        <!--<CheckBox-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="20sp"-->
+            <!--android:text="TERMS AND CONDITIONS"-->
+            <!--android:layout_marginTop="10sp"-->
+            <!--android:id="@+id/check"/>-->
+
+        <Button
+            android:id="@+id/imageButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20sp"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/button"
+            android:drawableRight="@drawable/arrow"
+            android:padding="15sp"
+            android:text="Continue"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:srcCompat="@drawable/button" />
+
+        <TextView
+            android:id="@+id/already"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10sp"
+            android:text="Already registered?"
+            android:textColor="@android:color/background_dark"
+            android:textSize="14sp"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/forgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10sp"
+            android:text="Forgot Password?"
+            android:textColor="@android:color/background_dark"
+            android:textSize="14sp"
+            android:typeface="sans" />
+    </LinearLayout>
+
+
+</RelativeLayout>
