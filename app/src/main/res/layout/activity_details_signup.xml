@@ -91,6 +91,20 @@
             android:inputType="number"
             android:textCursorDrawable="@drawable/color_cursor" />
 
+        <EditText
+            android:id="@+id/editText7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#909090"
+            android:drawableLeft="@drawable/ic_phone"
+            android:ems="10"
+
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:textCursorDrawable="@drawable/color_cursor" />
+
         <Button
             android:id="@+id/imageButton"
             android:layout_width="match_parent"

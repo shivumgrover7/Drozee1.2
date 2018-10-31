@@ -1,6 +1,7 @@
 package com.drozee.drozeebvest;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,6 +31,7 @@ public class ChoosePlan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_plan);
         ButterKnife.bind(this);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("Plan").child(mAuth.getCurrentUser().getUid());
     }
@@ -41,12 +43,13 @@ public class ChoosePlan extends AppCompatActivity {
                 databaseReference.setValue(2);
                 Toast.makeText(getApplicationContext(),"Thank you!! We will be contacting you regarding this soon",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(this,MainActivitN.class));
+                finish();
                 break;
             case R.id.imageButton3:
                 databaseReference.setValue(1);
-                Toast.makeText(getApplicationContext(),"Thank you!! We will be contacting you regarding thhis soon",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Thank you!! We will be contacting you regarding this soon",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(this,MainActivitN.class));
-
+                finish();
                 break;
         }
     }

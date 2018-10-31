@@ -10,19 +10,21 @@
         android:gravity="center"
         android:orientation="vertical"
         >
+
         <TextView
+            android:id="@+id/paid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You have not paid yet"
             android:layout_marginBottom="20sp"
-            android:textSize="22sp"
-            />
+            android:text="You have not paid yet"
+            android:textSize="22sp" />
+
         <TextView
+            android:id="@+id/des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Please complete your payment to enjoy our full benefits"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <Button

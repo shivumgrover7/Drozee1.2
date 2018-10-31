@@ -19,6 +19,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,13 +35,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import android.widget.ImageView;
-
 
 import java.io.IOException;
 
@@ -58,13 +53,18 @@ public class DetailsSignup extends AppCompatActivity {
     Button imageButton;
     @BindView(R.id.imageView3)
     ImageView prof;
-    public int flag =0,Main=0;
+    public int flag = 0, Main = 0;
+    @BindView(R.id.textView)
+    TextView textView;
+    @BindView(R.id.editText7)
+    EditText editText7;
 
-    private Uri filefront,fileback,file,file1;
-    private StorageReference mStorage; public String useriD;
+    private Uri filefront, fileback, file, file1;
+    private StorageReference mStorage;
+    public String useriD;
     private FirebaseAuth mAuth;
-    private FirebaseDatabase mFirebaseDatabase,dbtest;
-    private DatabaseReference mUserReference,mProfile,drtest,mBook,mEmail;
+    private FirebaseDatabase mFirebaseDatabase, dbtest;
+    private DatabaseReference mUserReference, mProfile, drtest, mBook, mEmail;
 
 
     @Override
@@ -82,17 +82,19 @@ public class DetailsSignup extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 //        buttonSkip = (Button) findViewById(R.id.button_Skip);
 //        nextActivityGo = findViewById(R.id.textView5);
-        if(mAuth.getCurrentUser()!=null){
-        useriD = mAuth.getCurrentUser().getUid();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mUserReference = mFirebaseDatabase.getReference("UserDetails").child(mAuth.getCurrentUser().getUid());
-        mProfile = mFirebaseDatabase.getReference("profilePic").child(mAuth.getCurrentUser().getUid());
-        mBook = mFirebaseDatabase.getReference("Books").child(mAuth.getCurrentUser().getUid());
-        mEmail = mFirebaseDatabase.getReference("emailanduid").child(mAuth.getCurrentUser().getUid());
+        if (mAuth.getCurrentUser() != null) {
+            useriD = mAuth.getCurrentUser().getUid();
+            mFirebaseDatabase = FirebaseDatabase.getInstance();
+            mUserReference = mFirebaseDatabase.getReference("UserDetails").child(mAuth.getCurrentUser().getUid());
+            mProfile = mFirebaseDatabase.getReference("profilePic").child(mAuth.getCurrentUser().getUid());
+            mBook = mFirebaseDatabase.getReference("Books").child(mAuth.getCurrentUser().getUid());
+            mEmail = mFirebaseDatabase.getReference("emailanduid").child(mAuth.getCurrentUser().getUid());
 
-        dbtest = FirebaseDatabase.getInstance();
-        drtest = dbtest.getReference("loggedInBefore").child(mAuth.getCurrentUser().getUid());}
-        else{startActivity(new Intent(this,SignUp.class));}
+            dbtest = FirebaseDatabase.getInstance();
+            drtest = dbtest.getReference("loggedInBefore").child(mAuth.getCurrentUser().getUid());
+        } else {
+            startActivity(new Intent(this, SignUp.class));
+        }
 
 //        mUserReference.addValueEventListener(new ValueEventListener() {
 //            @Override
@@ -120,25 +122,20 @@ public class DetailsSignup extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (ContextCompat.checkSelfPermission(DetailsSignup.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_DENIED){
-                Toast.makeText(DetailsSignup.this,"Please allow permission for storage",Toast.LENGTH_LONG).show();
-                allowpermissionstorage();
-            }
+                        == PackageManager.PERMISSION_DENIED) {
+                    Toast.makeText(DetailsSignup.this, "Please allow permission for storage", Toast.LENGTH_LONG).show();
+                    allowpermissionstorage();
+                } else if (ContextCompat.checkSelfPermission(DetailsSignup.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        == PackageManager.PERMISSION_DENIED) {
+                    Toast.makeText(DetailsSignup.this, "Please allow permission for storage", Toast.LENGTH_LONG).show();
+                    allowpermissionstorage();
 
-            else if (ContextCompat.checkSelfPermission(DetailsSignup.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_DENIED){
-                Toast.makeText(DetailsSignup.this,"Please allow permission for storage",Toast.LENGTH_LONG).show();
-                allowpermissionstorage();
-
-            }
-
-            else{
-            showFileChooser();
-        }
+                } else {
+                    showFileChooser();
+                }
 
             }
         });
-
 
 
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -148,29 +145,32 @@ public class DetailsSignup extends AppCompatActivity {
                 String n = name.getText().toString();
                 String c = college.getText().toString();
                 String y = year.getText().toString();
-                if(n.isEmpty ())
-                {
-                    name.setError ("Name is required");
-                    name.requestFocus ();
+                String p = editText7.getText().toString();
+                if (n.isEmpty()) {
+                    name.setError("Name is required");
+                    name.requestFocus();
                     return;
                 }
-                if(c.isEmpty ())
-                {
-                    college.setError ("College's Name is required");
-                    college.requestFocus ();
+                if (c.isEmpty()) {
+                    college.setError("College's Name is required");
+                    college.requestFocus();
                     return;
                 }
-                if(y.isEmpty ())
-                {
-                    year.setError ("College Year is required");
-                    year.requestFocus ();
+                if (y.isEmpty()) {
+                    year.setError("College Year is required");
+                    year.requestFocus();
+                    return;
+                }
+                if (p.isEmpty()) {
+                    editText7.setError("College Year is required");
+                    editText7.requestFocus();
                     return;
                 }
 //                mUserReference.child("name").setValue(n);
 //                mUserReference.child("college").setValue(c);
 //                mUserReference.child("college year").setValue(y);
 
-                profileclass profileclass=new profileclass(n,c,y);
+                profileclass profileclass = new profileclass(n, c, y, p);
                 mUserReference.setValue(profileclass);
                 mEmail.child("email").setValue(mAuth.getCurrentUser().getEmail());
                 mEmail.child("uid").setValue(mAuth.getCurrentUser().getUid());
@@ -188,25 +188,27 @@ public class DetailsSignup extends AppCompatActivity {
     }
 
     private void allowpermissionstorage() {
-        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
 
     }
-    private void showFileChooser(){
+
+    private void showFileChooser() {
 //        Intent intent = new Intent(Intent.ACTION_GET_CONTENT).setType("image/").putExtra(Intent.EXTRA_LOCAL_ONLY,true);
 //        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 100);
 
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(galleryIntent , 100);
+        startActivityForResult(galleryIntent, 100);
     }
 
     private void allowpermissioncamera() {
 
-        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA
         }, 100);
 
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == 0) {
@@ -216,7 +218,6 @@ public class DetailsSignup extends AppCompatActivity {
             }
         }
     }
-
 
 
     @Override
@@ -233,14 +234,13 @@ public class DetailsSignup extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             prof.setImageURI(file);
         }
 
     }
 
-    private void uploadFile(){
+    private void uploadFile() {
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading Picture....");
@@ -248,7 +248,7 @@ public class DetailsSignup extends AppCompatActivity {
         StorageReference riversRef = mStorage.child(mAuth.getCurrentUser().getUid()).child("profile");
 
 
-        if(file==null){
+        if (file == null) {
 //            Toast.makeText(this,"no pic",Toast.LENGTH_SHORT).show();
 //            startActivity(new Intent(DetailsSignup.this,IDLoginup.class));
 //            finish();
@@ -256,7 +256,7 @@ public class DetailsSignup extends AppCompatActivity {
             mProfile.setValue(flag);
             changeactivity();
         }
-        if(file!=null) {
+        if (file != null) {
             progressDialog.show();
             riversRef.putFile(file)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -280,7 +280,7 @@ public class DetailsSignup extends AppCompatActivity {
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
                     progressDialog.setMessage(((int) progress) + "% Uploaded.. ");
-                    if(progress==100){
+                    if (progress == 100) {
 
                         //checking if idcard exists
                         changeactivity();
@@ -294,26 +294,25 @@ public class DetailsSignup extends AppCompatActivity {
     }
 
 
-    void changeactivity()
-    {
+    void changeactivity() {
         drtest.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue()!=null){
+                if (dataSnapshot.getValue() != null) {
                     mBook.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.getValue()!=null){
-                                if(Main==0){
-                                Log.e("Details","*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",null);
-                                Main = 1;
-                                startActivity(new Intent(DetailsSignup.this,MainActivitN.class));
-                                finish();}
-                            }
-                            else {
-                                if(Main==0){
-                                startActivity(new Intent(DetailsSignup.this,Book.class));
-                                finish();
+                            if (dataSnapshot.getValue() != null) {
+                                if (Main == 0) {
+                                    Log.e("Details", "*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", null);
+                                    Main = 1;
+                                    startActivity(new Intent(DetailsSignup.this, MainActivitN.class));
+                                    finish();
+                                }
+                            } else {
+                                if (Main == 0) {
+                                    startActivity(new Intent(DetailsSignup.this, Book.class));
+                                    finish();
                                     Main = 2;
                                 }
                             }
@@ -325,9 +324,8 @@ public class DetailsSignup extends AppCompatActivity {
                         }
                     });
 
-                }
-                else{
-                    startActivity(new Intent(DetailsSignup.this,IDLoginup.class));
+                } else {
+                    startActivity(new Intent(DetailsSignup.this, IDLoginup.class));
                     finish();
                 }
             }

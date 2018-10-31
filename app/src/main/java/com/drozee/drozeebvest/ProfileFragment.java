@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -49,10 +50,14 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.imageButton)
     Button imageButton;
     Unbinder unbinder;
+    @BindView(R.id.textView11)
+    TextView textView11;
+    @BindView(R.id.editText7)
+    EditText editText7;
 
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference mUserReference,mProfile;
+    private DatabaseReference mUserReference, mProfile;
     private StorageReference mStorage;
 
 
@@ -104,6 +109,7 @@ public class ProfileFragment extends Fragment {
                 editText.setText(profileclas.getName());
                 editText2.setText(profileclas.getCollege());
                 editText3.setText(profileclas.getYear());
+                editText7.setText(profileclas.getPhone());
             }
 
             @Override
@@ -116,7 +122,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String flag = dataSnapshot.getValue().toString();
-                if(flag.equals(1)||flag.equals("1"))
+                if (flag.equals(1) || flag.equals("1"))
                     getfile();
             }
 
@@ -142,19 +148,19 @@ public class ProfileFragment extends Fragment {
                 break;
             case R.id.imageButton:
 
-                profileclass profileclass = new profileclass(editText.getText().toString(),editText2.getText().toString(),editText3.getText().toString());
+                profileclass profileclass = new profileclass(editText.getText().toString(), editText2.getText().toString(), editText3.getText().toString(),editText7.getText().toString());
                 mUserReference.setValue(profileclass);
-                Toast.makeText(getActivity(),"updated",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "updated", Toast.LENGTH_SHORT).show();
 
                 break;
         }
     }
 
-//    @OnClick(R.id.imageButton3)
+    //    @OnClick(R.id.imageButton3)
 //    public void onViewClicked() {
 //        mAuth.signOut();
 //    }
-    void getfile(){
+    void getfile() {
         try {
             final File localFile = File.createTempFile("images", "jpg");
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
@@ -168,10 +174,11 @@ public class ProfileFragment extends Fragment {
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                     progressDialog.dismiss();
                     Bitmap bitmap = BitmapFactory.decodeFile(localFile.getAbsolutePath());
-                    if(bitmap!=null){
-                        Log.e("pic","downloaded",null);
-                    imageView3.setImageBitmap(bitmap);}
-                    Toast.makeText(getActivity(),"done",Toast.LENGTH_SHORT).show();
+                    if (bitmap != null) {
+                        Log.e("pic", "downloaded", null);
+                        imageView3.setImageBitmap(bitmap);
+                    }
+                    Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -186,6 +193,7 @@ public class ProfileFragment extends Fragment {
 
                 }
             });
-        } catch (IOException e ) {}
+        } catch (IOException e) {
+        }
     }
 }
